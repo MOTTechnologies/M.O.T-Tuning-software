@@ -1,8 +1,8 @@
 Enter file contents herepurpose = ccp
 type = snoop_dll
-user_code = namespace NS_Snoop
+user_code = namespace NS_M.O.T
 {
-    class SnoopKeyGenerator
+    class M.O.TKeyGenerator
     {
         // You must implement the following function in this class in C#.
         // *   'use' will be one of SeedKey.USE_T.CCP_CAL, CCP_DAQ,
