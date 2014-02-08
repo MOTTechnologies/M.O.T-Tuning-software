@@ -1,0 +1,56 @@
+Enter file contents herepurpose = ccp
+type = snoop_dll
+user_code = namespace NS_Snoop
+{
+    class SnoopKeyGenerator
+    {
+        // You must implement the following function in this class in C#.
+        // *   'use' will be one of SeedKey.USE_T.CCP_CAL, CCP_DAQ,
+        //     CCP_PGM, ISO_1, ISO_2, or ISO_3. 
+        // *   'isoAccessType' is the KP2000-3 accessMode or UDS securityAccessType
+        //     value used in the sendKey response (always even). 
+        // *   Return false if security should not be attempted for this kind of 
+        //     operation or true if it is required.
+        // *   Add an explanation to 'errors' if there is a problem (e.g. unexpected input)
+        //     and that error will be reported to the user.
+        // *   The key and seed sizes are implied by the length of those arrays.
+
+        public bool ComputeKey(byte[] seed, out byte[] key, SeedKey.USE_T use, byte isoAccessType, ref string errors)
+        {
+            key = new byte[4];
+
+            if (use == SeedKey.USE_T.CCP_DAQ)
+            {
+                return false; // no security required for this function
+            }
+
+            if (seed.Length != 4)
+            {
+                errors += "Unexpected number of seed bytes";
+                return true; // security is required, but we cannot do it!
+            }
+
+            // Same actual algorithm for all other uses in this example:
+            key[0] = seed[3];
+            key[1] = seed[2];
+            key[2] = seed[1];
+            key[3] = seed[0];
+
+            return true;
+        } // end of function
+
+    } // end of class
+} // end of namespace:
+snoop_dll = :
+asap2_dll_1 = :
+use_for_cal = true
+use_for_daq = false
+use_for_pgm = true
+asap2_dll_2 = :
+use_for_cal = false
+use_for_daq = false
+use_for_pgm = false
+asap2_dll_3 = :
+use_for_cal = false
+use_for_daq = true
+use_for_pgm = false
