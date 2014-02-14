@@ -1,0 +1,10 @@
+namespace MOT {
+ class MOTecu_reader {
+ public:
+ MOTecu_reader(int can_speed);
+ unsigned char request(unsigned char pid, char *buffer, char *buffer2 = NULL, char *buffer3 = NULL, char *buffer4 = NULL);
+ private:
+ int i;
+ };
+ }
+ #endif
