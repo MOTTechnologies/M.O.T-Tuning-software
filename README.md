@@ -1,6 +1,7 @@
 M.O.T-Tuning-software
 =====================
 
-A tuning soluition for Hyundai 
+A tuning soluition for the  Hyundai Veloster Turbo
 
 The pouporse for this project is to have a tuning soluition for the veloster turbo.
+This is an "opensource project" for the VT community to use freely
